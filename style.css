@@ -12,6 +12,7 @@ body {
     align-items: center;
     background: linear-gradient(180deg, #f9e6ff 0%, #a1c4fd 100%);
     font-family: "Roboto", sans-serif;
+    overflow: hidden;
 }
 
 .maincon {
@@ -100,6 +101,7 @@ body {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     transition: background 0.3s;
 }
+
 #clickcard:hover {
     background-color: #ff1493;
 }
@@ -116,14 +118,59 @@ body {
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s, top 0.2s ease, left 0.2s ease;;
+    transition: background 0.3s, top 0.2s ease, left 0.2s ease;
+    ;
 }
+
 #btn-RUN:hover {
     background-color: #6c5ce7;
 }
 
+/* snow */
+.snow,
+.snow:after,
+.snow:before {
+    content: "";
+    position: absolute;
+    top: -650px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(10px 10px at 100px 80px, #ff4d4d, transparent),
+        radial-gradient(10px 10px at 300px 200px, #4dd0e1, transparent),
+        radial-gradient(10px 10px at 600px 400px, #ffd54f, transparent),
+        radial-gradient(10px 10px at 900px 100px, #81c784, transparent),
+        radial-gradient(10px 10px at 1200px 300px, #ba68c8, transparent),
+
+        radial-gradient(10px 10px at 200px 600px, #ff8a65, transparent),
+        radial-gradient(10px 10px at 500px 700px, #7986cb, transparent),
+        radial-gradient(10px 10px at 800px 550px, #e57373, transparent),
+        radial-gradient(10px 10px at 1100px 650px, #4db6ac, transparent),
+        radial-gradient(10px 10px at 1400px 500px, #f06292, transparent);
+
+    background-size: 650px 650px;
+
+    animation: snowfall 3s linear infinite,
+        opacitysnow 5s;
+}
+
+.snow:after {
+    margin-left: -250px;
+    opacity: 0.5;
+    filter: blur(2px);
+}
+
+.snow::before {
+    margin-left: -350px;
+    opacity: 0.7;
+    filter: blur(1px);
+}
+
 @keyframes flicker {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
         text-shadow:
             0 0 8px #fff,
@@ -131,6 +178,7 @@ body {
             0 0 24px #ff69b4,
             0 0 36px #ff69b4;
     }
+
     50% {
         opacity: 0.8;
         text-shadow:
@@ -144,10 +192,12 @@ body {
         opacity: 0;
         transform: scale(0.5) rotateY(0deg);
     }
+
     60% {
         opacity: 1;
         transform: scale(1.1) rotateY(0deg);
     }
+
     100% {
         transform: scale(1) rotateY(0deg);
     }
@@ -189,5 +239,27 @@ body {
     #btn-RUN {
         padding: 12px 24px;
         font-size: 16px;
+    }
+}
+
+@keyframes snowfall {
+    from {
+        visibility: hidden;
+        transform: translateY(650px);
+    }
+
+    to {
+        transform: translateY(0);
+
+    }
+}
+
+@keyframes opacitysnow {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
