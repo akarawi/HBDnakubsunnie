@@ -18,7 +18,7 @@ button.addEventListener('click', () => {
 const btn = document.getElementById("btn-RUN");
 const offset = 100;
 let lastmovemouse = 0;
-const cooldown = 400;//ms
+const cooldown = 450;//ms
 
 //หาตำแหน่งเมาส์
 document.addEventListener("mousemove", function (e) {
